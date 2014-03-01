@@ -1,4 +1,4 @@
-refungerest_sms
-===============
+### refungerest_sms
+===================
 
-SMS integration service for Refuge Restrooms
+SMS integration service for Refuge Restrooms.

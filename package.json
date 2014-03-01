@@ -1,0 +1,24 @@
+{
+  "name": "refugerest_sms",
+  "version": "0.0.0",
+  "description": "SMS integration service for Refuge Restrooms",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tkwidmer/refugerest_sms.git"
+  },
+  "contributors": [
+      {
+          "name": "Sabra Pratt",
+          "email": "pratt.sabra@gmail.com"
+      }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tkwidmer/refugerest_sms/issues"
+  },
+  "homepage": "https://github.com/tkwidmer/refugerest_sms"
+}
