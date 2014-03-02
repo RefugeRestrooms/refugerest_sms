@@ -69,12 +69,12 @@
         "configurable": false,
         "writable": true
     },
-    "downvotes": {
+    "downvote": {
         "enumerable": true,
         "configurable": false,
         "writable": true
     },
-    "upvotes": {
+    "upvote": {
         "enumerable": true,
         "configurable": false,
         "writable": true

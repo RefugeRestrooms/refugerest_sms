@@ -9,16 +9,52 @@ var path = require('path');
 var bathroom = require(path.resolve(__dirname, '../../model')).bathroom;
 var twilio = require('twilio');
 var geocoder = require('geocoder');
+var geolib = require('geolib')
 
 exports.post = function(req, res) {
 
-    var location = req.body ? req.body.Body : null;
+    var message = req.body ? req.body.Body : null;
 
-    if (!location) {
+    if (!message || typeof message !== 'string') {
+
         res.statusCode = 200;
         res.send('Ok');
-        return;
     }
+    else {
+
+        var handler;
+        if (message.toUpperCase().indexOf('DESC-') !== -1) {
+
+            handler = _processDescriptionRequest;
+        }
+        else {
+
+            handler = _processSearchByAddress;
+        }
+
+        handler(message, function(error, message) {
+
+            var reply;
+
+            if (error) {
+                console.log(error);
+                res.statusCode = 500;
+                res.send('Ok');
+            }
+            else if (!message) {
+                res.statusCode = 200;
+                res.send('Ok');
+            }
+            else {
+                reply = new twilio.TwimlResponse();
+                reply.message(message);
+                res.send(reply);
+            }
+        });
+    }
+}
+
+function _processSearchByAddress(location, cb) {
 
     async.waterfall([
 
@@ -57,36 +93,70 @@ exports.post = function(req, res) {
                         wcb(null, null);
                     }
                     else {
+
                         var bath = results[0];
+
+                        var coord1 = {
+                            latitude: filters.latitude,
+                            longitude: filters.longitude
+                        };
+
+                        var coord2 = {
+                            latitude: bath.latitude,
+                            longitude: bath.longitude
+                        };
+
                         var msg = 'Closest Restroom: ';
                             msg += bath.name + ', ';
                             msg += bath.street + ', ';
                             msg += bath.city + ', ';
-                            msg += bath.state;
+                            msg += bath.state + '. ';
+                            msg += 'Distance: ' + geolib.getDistance(coord1, coord2) + '.';
+                        if (bath.comment) {
+                            msg += ' Reply DESC-' + bath.id + ' for description.';
+                        }
                         wcb(null, msg);
                     }
                 });
             }
         }
 
-    ], function(error, message) {
+    ], cb);
+}
 
-        // Respond to request
-        var reply;
+function _processDescriptionRequest(message, cb) {
+
+    var bathroomId = message.split('DESC-')[1].split(/[ ,]+/)[0];
+
+    if (!_.isFinite(bathroomId)) {
+
+        cb(new Error('Invalid bathroom ID: '+ bathroomId));
+        return;
+    }
+
+    var service = new bathroom.Service();
+
+    var filters = {
+        id: bathroomId
+    };
+
+    service.find(filters, null, function(error, results) {
 
         if (error) {
-            console.log(error);
-            res.statusCode = 500;
-            res.send('Ok');
+            cb(error, null);
         }
-        else if (!message) {
-            res.statusCode = 200;
-            res.send('Ok');
+        else if (!Array.isArray(results) || !results.length) {
+            cb(null, null);
         }
         else {
-            reply = new twilio.TwimlResponse();
-            reply.message(message);
-            res.send(reply);
+            var bath = results[0];
+            var msg = bath.name + ': ';
+                msg += bath.comment + ' ';
+                msg += 'Access: ' + (bath.access ? true : false) + '. ';
+                msg += 'Upvotes: ' + bath.upvote + '. ';
+                msg += 'Downvotes: ' + bath.downvote + '.';
+
+            cb(null, msg);
         }
     });
 }
