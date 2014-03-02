@@ -22,11 +22,13 @@ exports.post = function(req, res) {
 
     async.waterfall([
 
+        // Get location coordinates
         function(wcb) {
 
             _getCoordinatesForLocation(location, wcb);
         },
 
+        // Search for closest restroom
         function(coordinates, wcb) {
 
             if (!coordinates) {
@@ -56,10 +58,11 @@ exports.post = function(req, res) {
                     }
                     else {
                         var bath = results[0];
-                        var msg = '' + bath.name;
-                            msg += ', ' + bath.street;
-                            msg += ', ' + bath.city;
-                            msg += ', ' + bath.state;
+                        var msg = 'Closest Restroom: ';
+                            msg += bath.name + ', ';
+                            msg += bath.street + ', ';
+                            msg += bath.city + ', ';
+                            msg += bath.state;
                         wcb(null, msg);
                     }
                 });
@@ -68,6 +71,7 @@ exports.post = function(req, res) {
 
     ], function(error, message) {
 
+        // Respond to request
         var reply;
 
         if (error) {
