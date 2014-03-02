@@ -1,0 +1,82 @@
+{
+    "id" : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "name" : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "street" : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "city": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "state" : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "country" : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "access" : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "bath_type"  : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "directions" : {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "comment": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "latitude": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "longitude": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "created_at": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "updated_at": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "downvotes": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    },
+    "upvotes": {
+        "enumerable": true,
+        "configurable": false,
+        "writable": true
+    }
+}

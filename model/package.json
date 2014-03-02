@@ -1,0 +1,21 @@
+{
+    "name": "refugemodel",
+    "main": "./refugemodel",
+    "version": "0.0.1",
+    "scripts": {
+    },
+    "description": "Data model for Refuge Restrooms",
+    "author": {
+        "name": "Sabra Pratt",
+        "email": "pratt.sabra@gmail.com"
+    },
+    "engines": {
+        "node": "0.10.x",
+        "npm": "1.1.x"
+    },
+    "private": true,
+    "readme": "# refugemodeljs\n\n## Description\n\nData model for Refuge Restrooms\n",
+    "readmeFilename": "README.md",
+    "_id": "refugemodel@0.0.1",
+    "_from": "node_modules/refugemodel"
+}
