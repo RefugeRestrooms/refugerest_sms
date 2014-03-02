@@ -1,34 +1,34 @@
-### RefugeRestrooms - App Server
+### RefugeRestrooms: SMS Server
+###### A RESTful web API for SMS search by [RefugeRestrooms](http://www.refugerestrooms.org).
 ===================================
-A RESTful web API for [Refuge Restrooms](http://www.refugerestrooms.org).
 
 ### Installation
 
-1. Download & install the latest version of node.js at [http://nodejs.org](http://nodejs.org).
+Download & install the latest version of node.js at [http://nodejs.org](http://nodejs.org).
 
-2. Dowlond & install the Heroku toolbelt at [https://toolbelt.heroku.com](https://toolbelt.heroku.com).
+Dowlond & install the Heroku toolbelt at [https://toolbelt.heroku.com](https://toolbelt.heroku.com).
 
-3. Clone the git repository:
+Clone the git repository:
 
 ```javascript
 $ git clone git@github.com:tkwidmer/refugerest_sms.git
 ```
 
-4. Install third-party modules from npm:
+Install third-party modules from npm:
 
 ```javascript
 $ cd refugerest_sms
 $ npm install
 ```
 
-5. Create a .env file for local environment variables. You'll need to set the following values:
+Create a .env file for local environment variables. You'll need to set the following values:
 
-    - PG_NATIVE
+    - PG_NATIVE=true
     - DATABASE_URL
     - TWILIO_ACCOUNT_SID
     - TWILIO_AUTH_TOKEN
 
-6. Start the server!
+Start the server!
 
 ```javascript
 $ foreman start
