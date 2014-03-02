@@ -127,7 +127,11 @@ function _processSearchByAddress(location, cb) {
 
 function _processDescriptionRequest(message, cb) {
 
-    var bathroomId = message.split('DESC-')[1].split(/[ ,]+/)[0];
+    var bathroomId,
+        tmp = message.toUpperCase().split('DESC-')[1];
+    if (tmp[1]) {
+        bathroomId = tmp[1].split(/[ ,]+/)[0];
+    }
 
     if (!_.isFinite(bathroomId)) {
 
