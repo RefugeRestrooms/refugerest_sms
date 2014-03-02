@@ -111,7 +111,8 @@ function _processSearchByAddress(location, cb) {
                             msg += bath.street + ', ';
                             msg += bath.city + ', ';
                             msg += bath.state + '. ';
-                            msg += 'Distance: ' + geolib.convertUnit('mi', geolib.getDistance(coord1, coord2)) + '.';
+                            msg += 'Distance: ';
+                            msg += Math.round(geolib.convertUnit('mi', geolib.getDistance(coord1, coord2)), 2) + ' mi.';
                         if (bath.comment) {
                             msg += ' Reply DESC-' + bath.id + ' for description.';
                         }
