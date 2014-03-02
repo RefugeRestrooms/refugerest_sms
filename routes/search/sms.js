@@ -129,8 +129,8 @@ function _processDescriptionRequest(message, cb) {
 
     var bathroomId,
         tmp = message.toUpperCase().split('DESC-')[1];
-    if (tmp[1]) {
-        bathroomId = tmp[1].split(/[ ,]+/)[0];
+    if (tmp) {
+        bathroomId = parseInt(tmp, 10);
     }
 
     if (!_.isFinite(bathroomId)) {
