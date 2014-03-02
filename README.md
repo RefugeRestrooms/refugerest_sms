@@ -1,6 +1,5 @@
-### Refuge Restrooms App Server
+### RefugeRestrooms - App Server
 ===================================
-
 A RESTful web API for [Refuge Restrooms](http://www.refugerestrooms.org).
 
 ### Installation
@@ -11,12 +10,16 @@ A RESTful web API for [Refuge Restrooms](http://www.refugerestrooms.org).
 
 3. Clone the git repository:
 
-    $ git clone git@github.com:tkwidmer/refugerest_sms.git
+```javascript
+$ git clone git@github.com:tkwidmer/refugerest_sms.git
+```
 
 4. Install third-party modules from npm:
 
-    $ cd refugerest_sms
-    $ npm install
+```javascript
+$ cd refugerest_sms
+$ npm install
+```
 
 5. Create a .env file for local environment variables. You'll need to set the following values:
 
@@ -27,4 +30,6 @@ A RESTful web API for [Refuge Restrooms](http://www.refugerestrooms.org).
 
 6. Start the server!
 
-    $ foreman start
+```javascript
+$ foreman start
+```
