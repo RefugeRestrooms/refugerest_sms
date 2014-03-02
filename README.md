@@ -6,7 +6,7 @@
 
 Download & install the latest version of node.js at [http://nodejs.org](http://nodejs.org).
 
-Dowload & install the Heroku toolbelt at [https://toolbelt.heroku.com](https://toolbelt.heroku.com).
+Download & install the Heroku toolbelt at [https://toolbelt.heroku.com](https://toolbelt.heroku.com).
 
 Clone the git repository:
 ```javascript
